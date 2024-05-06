@@ -4,6 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import gde.axihbu.beadando.entry.EredmenyEntry;
+import gde.axihbu.beadando.entry.VersenyEntry;
+import gde.axihbu.beadando.entry.VersenyzoEntry;
+import gde.axihbu.beadando.repository.EredmenyRepository;
+import gde.axihbu.beadando.repository.VersenyRepository;
+import gde.axihbu.beadando.repository.VersenyzoRepository;
+
 @Component
 public class DataLoader implements CommandLineRunner {
     @Autowired

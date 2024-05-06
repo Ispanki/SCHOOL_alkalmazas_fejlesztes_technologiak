@@ -1,4 +1,4 @@
-package gde.axihbu.beadando;
+package gde.axihbu.beadando.entry;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
