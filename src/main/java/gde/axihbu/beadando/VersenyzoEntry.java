@@ -1,15 +1,17 @@
 package gde.axihbu.beadando;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class VersenyzoEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long versenyzoId;
     private String nev;
-    private Integer kor;
+    private int kor;
     private Boolean isFerfi;
 
     public Long getVersenyzoId(){
@@ -26,10 +28,10 @@ public class VersenyzoEntry {
         this.nev = newNev;
     }
 
-    public Integer getKor(){
+    public int getKor(){
         return kor;
     }
-    public void setKor(Integer newKor){
+    public void setKor(int newKor){
         this.kor = newKor;
     }
 

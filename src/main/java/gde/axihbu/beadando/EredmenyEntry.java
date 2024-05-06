@@ -1,16 +1,21 @@
 package gde.axihbu.beadando;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class EredmenyEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long eredmenyId;
+    @ManyToOne
     private VersenyEntry verseny;
+    @ManyToOne
     private VersenyzoEntry versenyzo;
-    private Integer ido;
+    private int ido;
 
     public Long getErednemyId(){
         return eredmenyId;
@@ -33,10 +38,10 @@ public class EredmenyEntry {
         this.versenyzo = versenyzo;
     }
 
-    public Integer getIdo(){
+    public int getIdo(){
         return ido;
     }
-    public void setIdo(Integer ido){
+    public void setIdo(int ido){
         this.ido = ido;
     }
 
