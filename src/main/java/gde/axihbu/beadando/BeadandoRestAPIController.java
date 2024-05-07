@@ -3,9 +3,12 @@ package gde.axihbu.beadando;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import gde.axihbu.beadando.entry.VersenyzoEntry;
 import gde.axihbu.beadando.repository.EredmenyRepository;
 import gde.axihbu.beadando.repository.VersenyRepository;
 import gde.axihbu.beadando.repository.VersenyzoRepository;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +27,8 @@ public class BeadandoRestAPIController {
     private EredmenyRepository eredmenyRepositor;
 
     @GetMapping("/getRunners")
-    public String getRunners() {
-
-        return new String();
+    public List<VersenyzoEntry> getRunners() {
+        return versenyzoRepository.findAll();
     }
     
     @PostMapping("/addRunner")
