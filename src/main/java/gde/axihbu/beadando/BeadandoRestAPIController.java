@@ -92,7 +92,18 @@ public class BeadandoRestAPIController {
     }
         
     @GetMapping("/getAverageTime/{VERSENYID}")
-    public String getAverageTime() {
-        return new String();
+    public double getAverageTime(@PathVariable Long VERSENYID) {
+        List<EredmenyEntry> eredmenyek = eredmenyRepository.findAllByVerseny_VersenyId(VERSENYID);
+    
+        if (eredmenyek.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "A megadott versenyId-val nem található eredmény.");
+        }
+    
+        double osszesIdo = 0.0;
+        for (EredmenyEntry eredmeny : eredmenyek) {
+            osszesIdo += eredmeny.getIdo();
+        }
+    
+        return osszesIdo / eredmenyek.size();
     }
 }
