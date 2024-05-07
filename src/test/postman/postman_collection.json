@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "6339b41c-7210-4462-b7e8-dc682a3918e5",
+		"name": "Alkalmazás fejlesztés beandadó",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18986440"
+	},
+	"item": [
+		{
+			"name": "getRunners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getRunners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getRunners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRunner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nev\":\"Anna\",\r\n    \"kor\":21,\r\n    \"isFerfi\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addRunner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addRunner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRaceRunners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getRaceRunners/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getRaceRunners",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRace",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"versenyId\":1,\r\n    \"nev\":\"Frissített nev\",\r\n    \"tavolsag\":100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateRace",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateRace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addResult",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"versenyId\":1,\r\n    \"versenyzoId\":1,\r\n    \"ido\":20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addResult",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAverageTime",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getAverageTime/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getAverageTime",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "test",
+			"script": {
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});"
+				],
+				"type": "text/javascript"
+			}
+		}
+	]
+}
