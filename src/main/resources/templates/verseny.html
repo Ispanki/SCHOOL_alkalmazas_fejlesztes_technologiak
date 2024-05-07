@@ -6,6 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    verseny
-</body>
+    <h1>Versenyek</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Név</th>
+                <th>Távolság (km)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="verseny: ${versenyek}">
+                <td th:text="${verseny.versenyId}"></td>
+                <td th:text="${verseny.nev}"></td>
+                <td th:text="${verseny.tavolsag}"></td>
+                <td><a th:href="@{/verseny/{id}(id=${verseny.versenyId})}">Megtekint</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Új verseny felvétele</h2>
+    <form action="/addVerseny" method="post" >
+        <div>
+            <div>
+                <label for="nev">Új verseny neve:</label>
+                <input type="text" id="nev" name="nev" placeholder="Új verseny neve" minlength="0">
+            </div>
+            
+            <div>
+                <label for="tavolsag">Távolság:</label>
+                <input type="number" id="tavolsag" name="tavolsag" placeholder="0" min="0">
+            </div>
+        </div>
+        <button type="submit">Verseny létrehozása</button>
+      </form>
+    </body>
 </html>
