@@ -2,8 +2,10 @@ package gde.axihbu.beadando;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import gde.axihbu.beadando.entry.EredmenyEntry;
+import gde.axihbu.beadando.entry.VersenyEntry;
 import gde.axihbu.beadando.entry.VersenyzoEntry;
 import gde.axihbu.beadando.repository.EredmenyRepository;
 import gde.axihbu.beadando.repository.VersenyRepository;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +42,8 @@ public class BeadandoRestAPIController {
     
     @PostMapping("/addRunner")
     public VersenyzoEntry addRunner(@RequestBody VersenyzoEntry newRunner) {
-        return versenyzoRepository.save(newRunner);
+        VersenyzoEntry v = versenyzoRepository.save(newRunner);
+        return v;
     }
     
     @GetMapping("/getRaceRunner/{ID}")
@@ -58,8 +62,12 @@ public class BeadandoRestAPIController {
     }
     
     @PostMapping("/updateRace")
-    public String updateRace() {
-        return new String();
+    public VersenyEntry updateRace(@RequestBody VersenyEntry updatedRace) {
+        VersenyEntry race = versenyRepository.findById(updatedRace.getVersenyId()).orElseThrow();
+        race.setNev(updatedRace.getNev());
+        race.setTavolsag(updatedRace.getTavolsag());
+        VersenyEntry v = versenyRepository.save(race);
+        return v;
     }
     
     @PostMapping("/addResult")
