@@ -44,6 +44,4 @@ public class EredmenyEntry {
     public void setIdo(int ido){
         this.ido = ido;
     }
-
-
 }
