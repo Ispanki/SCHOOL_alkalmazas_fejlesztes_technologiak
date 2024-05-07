@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    eredmenyek
+    <h1>Verseny: <span th:text="${versenyNev}"></span></h1>
+
+    <table>
+        <thead>
+            <th>Név</th>
+            <th>Idő</th>
+        </thead>
+
+        <tbody th:each="eredmeny: ${eredmenyek}">
+            <td th:text="${eredmeny.versenyzo.getNev()}"></td>
+            <td th:text="${eredmeny.getIdo()}"></td>
+        </tbody>
+    </table>
 </body>
 </html>
